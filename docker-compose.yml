@@ -1,0 +1,140 @@
+version: '3.8'
+
+services:
+  # ============================================================================
+  # 1. Base de Datos Espacial PostgreSQL 16 + PostGIS 3.4
+  # ============================================================================
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: epidemic_twin_db
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-epidemic_twin}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-epidemic_twin}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ============================================================================
+  # 2. Backend Único de Producción: FastAPI (Puerto 8000)
+  # ============================================================================
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: epidemic_twin_backend
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@db:5432/${POSTGRES_DB:-epidemic_twin}
+      JWT_SECRET: ${JWT_SECRET:-secret_jwt_key_population_level_digital_twin_2026}
+      JWT_ALGORITHM: HS256
+      ACCESS_TOKEN_EXPIRE_MINUTES: 60
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5:0.5b}
+      LANGFLOW_URL: ${LANGFLOW_URL:-http://langflow:7860}
+      LANGFLOW_FLOW_ID: ${LANGFLOW_FLOW_ID:-906a3d58-bcf0-48a9-9364-4a62ea230945}
+      LANGFLOW_API_KEY: ${LANGFLOW_API_KEY:-sk-6muvF1jMcBM3BsH123tfWvCxL_Ul2c4fz3bfmH1I7dM}
+      ENVIRONMENT: production
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app/backend
+      - ./docs:/app/docs
+      - ./models:/app/models
+      - ./data:/app/data
+      - ./scripts:/app/scripts
+
+  # ============================================================================
+  # 3. Frontend React 19 + Vite (Puerto 3000)
+  # ============================================================================
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: epidemic_twin_frontend
+    restart: always
+    depends_on:
+      - backend
+    environment:
+      VITE_BACKEND_PROXY_TARGET: http://backend:8000
+      VITE_API_URL: http://backend:8000/api/v1
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+
+  # ============================================================================
+  # 4. Workspace de Ciencia de Datos: Streamlit CRISP-DM Fases 1-5 (Puerto 8501)
+  # ============================================================================
+  ds_workspace:
+    build:
+      context: .
+      dockerfile: Dockerfile.ds_workspace
+    container_name: epidemic_twin_ds_workspace
+    restart: always
+    depends_on:
+      - backend
+      - db
+    environment:
+      API_BASE_URL: http://backend:8000/api/v1
+      API_URL: http://backend:8000/api/v1
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@db:5432/${POSTGRES_DB:-epidemic_twin}
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./apps/data_science_workspace:/app/apps/data_science_workspace
+      - ./backend/app/epidemiology:/app/backend/app/epidemiology
+      - ./backend/app/analytics:/app/backend/app/analytics
+      - ./backend/app/data:/app/backend/app/data
+      - ./models:/app/models
+
+  # ============================================================================
+  # 5. Satélite de Traducción Académica: Streamlit + LangChain (Puerto 8502)
+  # ============================================================================
+  satellite_translator:
+    build:
+      context: .
+      dockerfile: Dockerfile.translator
+    container_name: epidemic_twin_translator
+    restart: always
+    environment:
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5:0.5b}
+      MAX_UPLOAD_SIZE_MB: 15
+      MAX_BATCH_SIZE_MB: 100
+    ports:
+      - "8502:8502"
+    volumes:
+      - ./apps/academic_translator:/app/apps/academic_translator
+
+  # ============================================================================
+  # 6. Servicio de Orquestación Visual Langflow (Puerto 7860)
+  # ============================================================================
+  langflow:
+    image: langflowai/langflow:latest
+    container_name: epidemic_twin_langflow
+    restart: always
+    ports:
+      - "7860:7860"
+    environment:
+      - LANGFLOW_HOST=0.0.0.0
+      - LANGFLOW_PORT=7860
+      - LANGFLOW_NUM_WORKERS=1
+      - LANGFLOW_AUTO_LOGIN=true
+    volumes:
+      - langflow_data:/app/langflow
+
+volumes:
+  postgres_data:
+  langflow_data:

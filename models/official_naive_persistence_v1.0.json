@@ -1,0 +1,47 @@
+{
+  "version": "v1.0.0-kenya-covid-weekly",
+  "name": "Official Operational Surveillance Forecast Model (Baseline_Naive_Persistence)",
+  "canonical_name": "Baseline_Naive_Persistence",
+  "model_type": "AUTOREGRESSIVE_PERSISTENCE_RULE",
+  "operational_role": "CAMPEÓN OFICIAL DE VIGILANCIA EPIDEMIOLÓGICA (t+1)",
+  "forecast_horizon": "1 semana hacia adelante (t+1 = t0 + 7 días)",
+  "mathematical_formula": "y_hat(t+1) = y(t0) [Persistencia Ingenua Semanal a 1 paso]",
+  "geographic_scope": "National Level (Kenya, county_code=0)",
+  "weights_required": false,
+  "weights_note": "Modelo analítico no paramétrico; no requiere archivo serializado de pesos (.joblib). La persistencia opera directamente sobre la serie semanal oficial.",
+  "selection_protocol": {
+    "rule": "Mínimo CV RMSE en desarrollo (protocolo ciego ex-ante sobre 155 semanas)",
+    "dev_cv_rmse": 1183.64,
+    "selected_ex_ante": true,
+    "status": "OPERACIONAL_OFICIAL"
+  },
+  "test_performance": {
+    "test_rmse": 55.64,
+    "test_mae": 19.23,
+    "test_mape": 515.49,
+    "note": "Evaluado en 71 semanas de prueba ciega (2023-04-02 a 2024-08-04)."
+  },
+  "model_coherence_matrix": {
+    "official_champion_forecast_t1": {
+      "name": "Baseline_Naive_Persistence",
+      "artifact": "models/official_naive_persistence_v1.0.json",
+      "nature": "Regla analítica determinista de persistencia a 1 paso (t+1)"
+    },
+    "sensitivity_exploration_model": {
+      "name": "Candidate_Random_Forest",
+      "artifact": "models/champion_covid_model_v1.0.joblib",
+      "metadata": "models/champion_covid_model_v1.0.json",
+      "nature": "Pipeline scikit-learn serializado para exploración de sensibilidad hipotética condicional"
+    },
+    "test_statistical_benchmark": {
+      "name": "Baseline_Ridge_Regression",
+      "test_rmse": 49.37,
+      "test_mae": 16.04,
+      "nature": "Benchmark estadístico ex-post de series de tiempo. NO evalúa ni calibra el modelo SEIR/ABM"
+    },
+    "digital_twin_mechanistic_simulator": {
+      "name": "Metapopulation SEIR + Agent-Based Model",
+      "nature": "Simulador mecanicista contrafactual de políticas de salud pública (Fase 4 y Fase 6). Segregado del pronóstico semanal de vigilancia."
+    }
+  }
+}

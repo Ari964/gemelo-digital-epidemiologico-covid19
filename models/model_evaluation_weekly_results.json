@@ -1,0 +1,935 @@
+{
+  "generated_at": "2026-09-28T16:28:27.994710",
+  "task_name": "Weekly COVID-19 Surveillance Forecasting & Sensitivity Exploration (Kenya)",
+  "source": "Our World in Data (OWID) / WHO / Kenya Ministry of Health",
+  "raw_data_sha256": "c82f3cfc5899b25557f3bf69de987dc9628bfa6fbbee55cd77b649c9d34cd2ba",
+  "temporal_protocol": {
+    "canonical_frequency": "WEEKLY (Sunday cutoffs)",
+    "forecast_horizon": "t+1 (1 week ahead)",
+    "dev_period": "2020-04-12 to 2023-03-26 (155 weeks)",
+    "test_period": "2023-04-02 to 2024-08-04 (71 weeks)",
+    "cv_method": "TimeSeriesSplit (5 folds)",
+    "selection_rule": "Mínimo CV RMSE en Desarrollo (protocolo ciego ex-ante; Ridge mejor en test pero descartado para evitar data snooping)"
+  },
+  "models": {
+    "Baseline_Naive_Persistence": {
+      "model_name": "Baseline_Naive_Persistence",
+      "role": "PREDICTIVE_CHAMPION",
+      "cv_rmse_5fold": 1183.64,
+      "hyperparameter_space": {},
+      "best_params": {
+        "strategy": "persistence_weekly_lag_1"
+      },
+      "fold_metrics": [
+        {
+          "fold": 1,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2020-11-01",
+          "val_start_date": "2020-11-08",
+          "val_end_date": "2021-04-25",
+          "train_samples": 30,
+          "val_samples": 25,
+          "val_rmse": 1102.76,
+          "val_mae": 867.88
+        },
+        {
+          "fold": 2,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2021-04-25",
+          "val_start_date": "2021-05-02",
+          "val_end_date": "2021-10-17",
+          "train_samples": 55,
+          "val_samples": 25,
+          "val_rmse": 992.36,
+          "val_mae": 833.32
+        },
+        {
+          "fold": 3,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2021-10-17",
+          "val_start_date": "2021-10-24",
+          "val_end_date": "2022-04-10",
+          "train_samples": 80,
+          "val_samples": 25,
+          "val_rmse": 3330.48,
+          "val_mae": 1534.92
+        },
+        {
+          "fold": 4,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2022-04-10",
+          "val_start_date": "2022-04-17",
+          "val_end_date": "2022-10-02",
+          "train_samples": 105,
+          "val_samples": 25,
+          "val_rmse": 364.6,
+          "val_mae": 226.28
+        },
+        {
+          "fold": 5,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2022-10-02",
+          "val_start_date": "2022-10-09",
+          "val_end_date": "2023-03-26",
+          "train_samples": 130,
+          "val_samples": 25,
+          "val_rmse": 128.0,
+          "val_mae": 87.08
+        }
+      ],
+      "dev_metrics": {
+        "rmse": 1503.15,
+        "mae": 663.68,
+        "mape": 64.75,
+        "r2": 0.7554
+      },
+      "test_metrics": {
+        "rmse": 55.64,
+        "mae": 19.23,
+        "mape": 515.49,
+        "r2": -0.4203
+      },
+      "training_time_sec": 0.019,
+      "inference_time_ms": 0.0,
+      "allows_npi_simulation": false
+    },
+    "Baseline_Ridge_Regression": {
+      "model_name": "Baseline_Ridge_Regression",
+      "role": "TEST_BENCHMARK",
+      "cv_rmse_5fold": 1405.93,
+      "hyperparameter_space": {
+        "regressor__alpha": [
+          0.1,
+          1.0,
+          10.0,
+          100.0,
+          500.0,
+          1000.0
+        ]
+      },
+      "best_params": {
+        "regressor__alpha": 1.0
+      },
+      "fold_metrics": [
+        {
+          "fold": 1,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2020-11-01",
+          "val_start_date": "2020-11-08",
+          "val_end_date": "2021-04-25",
+          "train_samples": 30,
+          "val_samples": 25,
+          "val_rmse": 1041.63,
+          "val_mae": 780.06
+        },
+        {
+          "fold": 2,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2021-04-25",
+          "val_start_date": "2021-05-02",
+          "val_end_date": "2021-10-17",
+          "train_samples": 55,
+          "val_samples": 25,
+          "val_rmse": 776.75,
+          "val_mae": 614.9
+        },
+        {
+          "fold": 3,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2021-10-17",
+          "val_start_date": "2021-10-24",
+          "val_end_date": "2022-04-10",
+          "train_samples": 80,
+          "val_samples": 25,
+          "val_rmse": 2498.41,
+          "val_mae": 1393.44
+        },
+        {
+          "fold": 4,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2022-04-10",
+          "val_start_date": "2022-04-17",
+          "val_end_date": "2022-10-02",
+          "train_samples": 105,
+          "val_samples": 25,
+          "val_rmse": 1442.11,
+          "val_mae": 1064.58
+        },
+        {
+          "fold": 5,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2022-10-02",
+          "val_start_date": "2022-10-09",
+          "val_end_date": "2023-03-26",
+          "train_samples": 130,
+          "val_samples": 25,
+          "val_rmse": 1063.22,
+          "val_mae": 650.46
+        }
+      ],
+      "dev_metrics": {
+        "rmse": 996.69,
+        "mae": 549.95,
+        "mape": 113.17,
+        "r2": 0.8925
+      },
+      "test_metrics": {
+        "rmse": 49.37,
+        "mae": 16.04,
+        "mape": 43.66,
+        "r2": -0.1181
+      },
+      "training_time_sec": 5.246,
+      "inference_time_ms": 1.2,
+      "allows_npi_simulation": true
+    },
+    "Candidate_Random_Forest": {
+      "model_name": "Candidate_Random_Forest",
+      "role": "SENSITIVITY_EXPLORATION",
+      "cv_rmse_5fold": 1345.87,
+      "hyperparameter_space": {
+        "regressor__n_estimators": [
+          50,
+          100
+        ],
+        "regressor__max_depth": [
+          3,
+          5,
+          8
+        ],
+        "regressor__min_samples_split": [
+          2,
+          5
+        ]
+      },
+      "best_params": {
+        "regressor__max_depth": 5,
+        "regressor__min_samples_split": 2,
+        "regressor__n_estimators": 100
+      },
+      "fold_metrics": [
+        {
+          "fold": 1,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2020-11-01",
+          "val_start_date": "2020-11-08",
+          "val_end_date": "2021-04-25",
+          "train_samples": 30,
+          "val_samples": 25,
+          "val_rmse": 1817.02,
+          "val_mae": 1389.2
+        },
+        {
+          "fold": 2,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2021-04-25",
+          "val_start_date": "2021-05-02",
+          "val_end_date": "2021-10-17",
+          "train_samples": 55,
+          "val_samples": 25,
+          "val_rmse": 1012.26,
+          "val_mae": 879.37
+        },
+        {
+          "fold": 3,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2021-10-17",
+          "val_start_date": "2021-10-24",
+          "val_end_date": "2022-04-10",
+          "train_samples": 80,
+          "val_samples": 25,
+          "val_rmse": 3213.67,
+          "val_mae": 1794.23
+        },
+        {
+          "fold": 4,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2022-04-10",
+          "val_start_date": "2022-04-17",
+          "val_end_date": "2022-10-02",
+          "train_samples": 105,
+          "val_samples": 25,
+          "val_rmse": 506.37,
+          "val_mae": 385.13
+        },
+        {
+          "fold": 5,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2022-10-02",
+          "val_start_date": "2022-10-09",
+          "val_end_date": "2023-03-26",
+          "train_samples": 130,
+          "val_samples": 25,
+          "val_rmse": 180.05,
+          "val_mae": 121.27
+        }
+      ],
+      "dev_metrics": {
+        "rmse": 391.98,
+        "mae": 216.04,
+        "mape": 88.23,
+        "r2": 0.9834
+      },
+      "test_metrics": {
+        "rmse": 81.72,
+        "mae": 74.05,
+        "mape": 5045.49,
+        "r2": -2.0638
+      },
+      "training_time_sec": 11.415,
+      "inference_time_ms": 131.11,
+      "allows_npi_simulation": true
+    },
+    "Candidate_HistGradientBoosting": {
+      "model_name": "Candidate_HistGradientBoosting",
+      "role": "COMPARATIVE",
+      "cv_rmse_5fold": 2041.78,
+      "hyperparameter_space": {
+        "regressor__learning_rate": [
+          0.03,
+          0.05,
+          0.1
+        ],
+        "regressor__max_iter": [
+          30,
+          50,
+          80
+        ],
+        "regressor__max_leaf_nodes": [
+          7,
+          15
+        ]
+      },
+      "best_params": {
+        "regressor__learning_rate": 0.05,
+        "regressor__max_iter": 80,
+        "regressor__max_leaf_nodes": 7
+      },
+      "fold_metrics": [
+        {
+          "fold": 1,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2020-11-01",
+          "val_start_date": "2020-11-08",
+          "val_end_date": "2021-04-25",
+          "train_samples": 30,
+          "val_samples": 25,
+          "val_rmse": 3574.45,
+          "val_mae": 2758.17
+        },
+        {
+          "fold": 2,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2021-04-25",
+          "val_start_date": "2021-05-02",
+          "val_end_date": "2021-10-17",
+          "train_samples": 55,
+          "val_samples": 25,
+          "val_rmse": 1432.16,
+          "val_mae": 1230.89
+        },
+        {
+          "fold": 3,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2021-10-17",
+          "val_start_date": "2021-10-24",
+          "val_end_date": "2022-04-10",
+          "train_samples": 80,
+          "val_samples": 25,
+          "val_rmse": 3521.29,
+          "val_mae": 2041.72
+        },
+        {
+          "fold": 4,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2022-04-10",
+          "val_start_date": "2022-04-17",
+          "val_end_date": "2022-10-02",
+          "train_samples": 105,
+          "val_samples": 25,
+          "val_rmse": 1235.25,
+          "val_mae": 1066.03
+        },
+        {
+          "fold": 5,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2022-10-02",
+          "val_start_date": "2022-10-09",
+          "val_end_date": "2023-03-26",
+          "train_samples": 130,
+          "val_samples": 25,
+          "val_rmse": 444.73,
+          "val_mae": 230.8
+        }
+      ],
+      "dev_metrics": {
+        "rmse": 1211.0,
+        "mae": 455.4,
+        "mape": 154.6,
+        "r2": 0.8413
+      },
+      "test_metrics": {
+        "rmse": 74.09,
+        "mae": 63.27,
+        "mape": 4280.72,
+        "r2": -1.5179
+      },
+      "training_time_sec": 3.127,
+      "inference_time_ms": 5.94,
+      "allows_npi_simulation": true
+    }
+  },
+  "statistical_tests": {
+    "shapiro_wilk": {
+      "test_name": "Shapiro-Wilk Test of Normality on Loss Differentials",
+      "h0": "Las pérdidas pareadas se distribuyen normalmente",
+      "h1": "Las pérdidas pareadas NO siguen distribución normal",
+      "statistic": 0.6887,
+      "p_value": 5.534087007900914e-11,
+      "is_normal": false,
+      "interpretation": "Se rechaza normalidad (p < 0.0001). Justifica métodos no paramétricos y robustos ante autocorrelación."
+    },
+    "diebold_mariano_hln": {
+      "test_name": "Diebold-Mariano Test con Corrección Harvey-Leybourne-Newbold (HLN 1997)",
+      "h0": "Precisión predictiva idéntica entre Persistencia y Random Forest (E[d_t] = 0)",
+      "h1_two_sided": "Diferente precisión predictiva (E[d_t] != 0)",
+      "h1_one_sided": "Random Forest supera a la Persistencia (E[d_t] > 0)",
+      "statistic_dm_hln": -14.324,
+      "mean_loss_diff_mae": -54.826,
+      "p_value_two_sided": 0.0,
+      "p_value_two_sided_formatted": "p < 0.0001",
+      "p_value_one_sided": 1.0,
+      "p_value_one_sided_formatted": "1.0000e+00",
+      "criterion": "MAE",
+      "sample_size": 71,
+      "conclusion": "Superioridad estadísticamente demostrada de la Persistencia (p < 0.0001).",
+      "interpretation": "Al controlar la autocorrelación temporal mediante estimación HAC Bartlett, la Persistencia supera formalmente al ensamble multivariado en la fase endémica."
+    },
+    "wilcoxon_paired": {
+      "test_name": "Wilcoxon Signed-Rank Test Pareado",
+      "h0": "Medianas de las pérdidas pareadas son idénticas",
+      "h1_two_sided": "Distribuciones de error pareado son distintas",
+      "h1_one_sided": "Error de persistencia > Error de Random Forest",
+      "statistic_w": 145.0,
+      "p_value_two_sided": 6.678804602472367e-11,
+      "p_value_two_sided_formatted": "p < 0.0001",
+      "p_value_one_sided": 0.9999999999666059,
+      "conclusion": "Rechazo bilateral de igualdad distributiva (p < 0.0001); fallo total unilateral (p = 1.0000).",
+      "interpretation": "El p = 1.0000 unilateral refleja fallo en rechazar H0 de error_base > error_cand. La superioridad de la persistencia se sustenta en su menor error observado (MAE 19.23 vs 74.05) y rechazo bilateral."
+    },
+    "kolmogorov_smirnov": {
+      "test_name": "Kolmogorov-Smirnov Test (2 muestras independientes de error)",
+      "h0": "Ambos modelos provienen de la misma función de distribución acumulada de error",
+      "h1": "Las distribuciones acumuladas de error difieren",
+      "statistic_ks": 0.8592,
+      "p_value": 3.564965641663617e-27,
+      "p_value_formatted": "p < 0.0001",
+      "caveat": "El test KS únicamente mide divergencia de forma acumulada; NO establece ranking ni superioridad métrica."
+    }
+  },
+  "untested_comparisons": {
+    "seir_abm_vs_statistical_weekly": {
+      "status": "NOT_EVALUATED_IN_WEEKLY_SERIES",
+      "scientific_rationale": "El Gemelo Digital SEIR/ABM opera como simulador contrafactual mecánico de escenarios y políticas de salud pública. No compite en la tarea canónica semanal de extrapolación estadística pura de OWID, por lo que no se le atribuyen métricas de error semanal."
+    }
+  },
+  "test_series_data": [
+    {
+      "date": "2023-04-02",
+      "observed": 16.0,
+      "naive_persistence": 11.0,
+      "candidate_random_forest": 69.91086624743845,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-04-09",
+      "observed": 9.0,
+      "naive_persistence": 16.0,
+      "candidate_random_forest": 69.91086624743845,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-04-16",
+      "observed": 13.0,
+      "naive_persistence": 9.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-04-23",
+      "observed": 27.0,
+      "naive_persistence": 13.0,
+      "candidate_random_forest": 69.91086624743845,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-04-30",
+      "observed": 28.0,
+      "naive_persistence": 27.0,
+      "candidate_random_forest": 69.91086624743845,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-05-07",
+      "observed": 14.0,
+      "naive_persistence": 28.0,
+      "candidate_random_forest": 69.91086624743845,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-05-14",
+      "observed": 0.0,
+      "naive_persistence": 14.0,
+      "candidate_random_forest": 69.91086624743845,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-05-21",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-05-28",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-06-04",
+      "observed": 238.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-06-11",
+      "observed": 0.0,
+      "naive_persistence": 238.0,
+      "candidate_random_forest": 246.284688879172,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-06-18",
+      "observed": 154.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 73.74401896953854,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-06-25",
+      "observed": 277.0,
+      "naive_persistence": 154.0,
+      "candidate_random_forest": 122.15439555634343,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-07-02",
+      "observed": 43.0,
+      "naive_persistence": 277.0,
+      "candidate_random_forest": 270.5746910153508,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-07-09",
+      "observed": 0.0,
+      "naive_persistence": 43.0,
+      "candidate_random_forest": 81.502634034872,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-07-16",
+      "observed": 64.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 76.01187653640807,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-07-23",
+      "observed": 65.0,
+      "naive_persistence": 64.0,
+      "candidate_random_forest": 83.5789997791913,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-07-30",
+      "observed": 3.0,
+      "naive_persistence": 65.0,
+      "candidate_random_forest": 79.95731827810049,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-08-06",
+      "observed": 0.0,
+      "naive_persistence": 3.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-08-13",
+      "observed": 37.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-08-20",
+      "observed": 23.0,
+      "naive_persistence": 37.0,
+      "candidate_random_forest": 69.91086624743845,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-08-27",
+      "observed": 7.0,
+      "naive_persistence": 23.0,
+      "candidate_random_forest": 69.91086624743845,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-09-03",
+      "observed": 1.0,
+      "naive_persistence": 7.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-09-10",
+      "observed": 9.0,
+      "naive_persistence": 1.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-09-17",
+      "observed": 3.0,
+      "naive_persistence": 9.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-09-24",
+      "observed": 13.0,
+      "naive_persistence": 3.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-10-01",
+      "observed": 14.0,
+      "naive_persistence": 13.0,
+      "candidate_random_forest": 69.91086624743845,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-10-08",
+      "observed": 17.0,
+      "naive_persistence": 14.0,
+      "candidate_random_forest": 69.91086624743845,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-10-15",
+      "observed": 15.0,
+      "naive_persistence": 17.0,
+      "candidate_random_forest": 69.91086624743845,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-10-22",
+      "observed": 15.0,
+      "naive_persistence": 15.0,
+      "candidate_random_forest": 69.91086624743845,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-10-29",
+      "observed": 19.0,
+      "naive_persistence": 15.0,
+      "candidate_random_forest": 69.91086624743845,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-11-05",
+      "observed": 3.0,
+      "naive_persistence": 19.0,
+      "candidate_random_forest": 82.3496790743356,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-11-12",
+      "observed": 0.0,
+      "naive_persistence": 3.0,
+      "candidate_random_forest": 83.20331543797197,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-11-19",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 83.20331543797197,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-11-26",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 83.20331543797197,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-12-03",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 83.20331543797197,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-12-10",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 83.20331543797197,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-12-17",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 83.20331543797197,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-12-24",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 83.20331543797197,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2023-12-31",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 83.20331543797197,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-01-07",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-01-14",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-01-21",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-01-28",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-02-04",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-02-11",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-02-18",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-02-25",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-03-03",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-03-10",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-03-17",
+      "observed": 7.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-03-24",
+      "observed": 0.0,
+      "naive_persistence": 7.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-03-31",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-04-07",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-04-14",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-04-21",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-04-28",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-05-05",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-05-12",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-05-19",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-05-26",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-06-02",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-06-09",
+      "observed": 2.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-06-16",
+      "observed": 1.0,
+      "naive_persistence": 2.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-06-23",
+      "observed": 1.0,
+      "naive_persistence": 1.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-06-30",
+      "observed": 0.0,
+      "naive_persistence": 1.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-07-07",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-07-14",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-07-21",
+      "observed": 1.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-07-28",
+      "observed": 0.0,
+      "naive_persistence": 1.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    },
+    {
+      "date": "2024-08-04",
+      "observed": 0.0,
+      "naive_persistence": 0.0,
+      "candidate_random_forest": 70.7645026110748,
+      "baseline_ridge": 0.0
+    }
+  ]
+}

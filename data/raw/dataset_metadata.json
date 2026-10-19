@@ -1,0 +1,21 @@
+{
+  "institution": "Our World in Data (OWID) / University of Oxford / Global Change Data Lab",
+  "dataset_title": "Coronavirus Pandemic (COVID-19) - Kenya Official Time-Series Data",
+  "source_page_url": "https://ourworldindata.org/coronavirus",
+  "direct_download_url": "https://raw.githubusercontent.com/owid/covid-19-data/master/public/data/owid-covid-data.csv",
+  "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+  "query_date": "2026-09-23",
+  "target_country_iso": "KEN",
+  "country_name": "Kenya",
+  "historical_status": "Repositorio histórico consolidado; congeló actualizaciones periódicas en 2024 debido a la transición global de reporte de la OMS.",
+  "description": "Dataset epidemiológico oficial con registros de casos confirmados, muertes, pruebas, tasa de positividad, tasa de reproducción (Rt), índice de rigor de políticas gubernamentales (Oxford Blavatnik School Stringency Index) y avance de vacunación para Kenia, consolidado a partir de reportes del Ministerio de Salud de Kenia (MoH) y la Organización Mundial de la Salud (OMS).",
+  "coverage_temporal": "2020-01-05 a 2024-08-04",
+  "coverage_geographic": "Kenya (National Level - ISO: KEN)",
+  "target_variable": "new_cases (conteo semanal acumulado reportado los domingos)",
+  "target_variable_smoothed": "new_cases_smoothed (media móvil de 7 días generada por OWID dividiendo el reporte semanal)",
+  "file_name": "owid_covid_kenya_raw.csv",
+  "file_size_bytes": 411807,
+  "sha256_checksum": "c82f3cfc5899b25557f3bf69de987dc9628bfa6fbbee55cd77b649c9d34cd2ba",
+  "total_records": 1674,
+  "downloaded_at": "2026-09-23T15:54:19.557333Z"
+}

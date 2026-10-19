@@ -1,0 +1,21 @@
+{
+  "version": "v1.0.0-test",
+  "name": "Champion SEIR-ABM",
+  "created_at": "2026-09-28T19:51:40.942390",
+  "schema_version": "1.0",
+  "engine_type": "Hybrid_SpatialSEIR_HouseholdABM",
+  "parameters": {
+    "beta": 0.35
+  },
+  "metrics": {
+    "mape": 12.0,
+    "r2": 0.92
+  },
+  "evaluation_id": null,
+  "technical_approval": true,
+  "approved_by": "Dr. Wanjiku",
+  "data_coverage_pct": 95.0,
+  "is_synthetic": false,
+  "source_type": "EMPIRICAL",
+  "sha256_checksum": "c18312a87f135673105c2c91c0d401582c4495e727a561fdc680a355dc0f8de8"
+}

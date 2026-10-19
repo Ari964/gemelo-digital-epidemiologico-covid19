@@ -1,0 +1,6 @@
+{
+  "name": "Population Digital Twin - Pandemic Preparedness",
+  "description": "A Population-Level 3D Digital Twin for Pandemic Preparedness integrating mobility, vaccination, and socioeconomic data across LMIC subcounties with SEIR-ABM hybrid simulation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

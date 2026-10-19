@@ -1,0 +1,942 @@
+[
+  {
+    "code": 1,
+    "iso_code": "KE-01",
+    "name": "Mombasa",
+    "capital": "Mombasa",
+    "population_2019": 1208333,
+    "area_sq_km": 218.1,
+    "latitude": -4.0435,
+    "longitude": 39.6682,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 35,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 30 (Dato #28 Mombasa), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 2,
+    "iso_code": "KE-02",
+    "name": "Kwale",
+    "capital": "Kwale",
+    "population_2019": 866820,
+    "area_sq_km": 8270.2,
+    "latitude": -4.1816,
+    "longitude": 39.4521,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 6,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 21 (Dato #19 Kwale), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 3,
+    "iso_code": "KE-03",
+    "name": "Kilifi",
+    "capital": "Kilifi",
+    "population_2019": 1453787,
+    "area_sq_km": 12609.7,
+    "latitude": -3.5107,
+    "longitude": 39.9093,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 16 (Dato #14 Kilifi) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 4,
+    "iso_code": "KE-04",
+    "name": "Tana River",
+    "capital": "Hola",
+    "population_2019": 315943,
+    "area_sq_km": 38437.0,
+    "latitude": -1.5,
+    "longitude": 40.0,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 42 (Dato #40 Tana River) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 5,
+    "iso_code": "KE-05",
+    "name": "Lamu",
+    "capital": "Lamu",
+    "population_2019": 143920,
+    "area_sq_km": 6273.1,
+    "latitude": -2.2717,
+    "longitude": 40.902,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 23 (Dato #21 Lamu) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 6,
+    "iso_code": "KE-06",
+    "name": "Taita-Taveta",
+    "capital": "Mwatate",
+    "population_2019": 340671,
+    "area_sq_km": 17084.1,
+    "latitude": -3.3161,
+    "longitude": 38.357,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 41 (Dato #39 Taita Taveta) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 7,
+    "iso_code": "KE-07",
+    "name": "Garissa",
+    "capital": "Garissa",
+    "population_2019": 841353,
+    "area_sq_km": 44175.0,
+    "latitude": -0.4532,
+    "longitude": 39.646,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 6,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 9 (Dato #7 Garissa), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 8,
+    "iso_code": "KE-08",
+    "name": "Wajir",
+    "capital": "Wajir",
+    "population_2019": 781263,
+    "area_sq_km": 55840.6,
+    "latitude": 1.7471,
+    "longitude": 40.0573,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 48 (Dato #46 Wajir) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 9,
+    "iso_code": "KE-09",
+    "name": "Mandera",
+    "capital": "Mandera",
+    "population_2019": 867457,
+    "area_sq_km": 25797.7,
+    "latitude": 3.9373,
+    "longitude": 41.8569,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 26 (Dato #24 Mandera) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 10,
+    "iso_code": "KE-10",
+    "name": "Marsabit",
+    "capital": "Marsabit",
+    "population_2019": 459785,
+    "area_sq_km": 70961.2,
+    "latitude": 2.334,
+    "longitude": 37.99,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 27 (Dato #25 Marsabit) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 11,
+    "iso_code": "KE-11",
+    "name": "Isiolo",
+    "capital": "Isiolo",
+    "population_2019": 268002,
+    "area_sq_km": 25336.1,
+    "latitude": 0.3546,
+    "longitude": 37.5822,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 11 (Dato #9 Isiolo) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 12,
+    "iso_code": "KE-12",
+    "name": "Meru",
+    "capital": "Meru",
+    "population_2019": 1545714,
+    "area_sq_km": 6936.2,
+    "latitude": 0.0463,
+    "longitude": 37.6559,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 2,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 28 (Dato #26 Meru), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 13,
+    "iso_code": "KE-13",
+    "name": "Tharaka-Nithi",
+    "capital": "Kathwana",
+    "population_2019": 393177,
+    "area_sq_km": 2609.5,
+    "latitude": -0.3,
+    "longitude": 37.8833,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 43 (Dato #41 Tharaka-Nithi) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 14,
+    "iso_code": "KE-14",
+    "name": "Embu",
+    "capital": "Embu",
+    "population_2019": 608599,
+    "area_sq_km": 2818.0,
+    "latitude": -0.5344,
+    "longitude": 37.4572,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 5,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 8 (Dato #6 Embu), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 15,
+    "iso_code": "KE-15",
+    "name": "Kitui",
+    "capital": "Kitui",
+    "population_2019": 1136187,
+    "area_sq_km": 30429.5,
+    "latitude": -1.3667,
+    "longitude": 38.0167,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 20 (Dato #18 Kitui) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 16,
+    "iso_code": "KE-16",
+    "name": "Machakos",
+    "capital": "Machakos",
+    "population_2019": 1421932,
+    "area_sq_km": 6208.2,
+    "latitude": -1.5177,
+    "longitude": 37.2634,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 5,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 24 (Dato #22 Machakos), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 17,
+    "iso_code": "KE-17",
+    "name": "Makueni",
+    "capital": "Wote",
+    "population_2019": 987653,
+    "area_sq_km": 8008.9,
+    "latitude": -1.7808,
+    "longitude": 37.6288,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 4,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 25 (Dato #23 Makueni), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 18,
+    "iso_code": "KE-18",
+    "name": "Nyandarua",
+    "capital": "Ol Kalou",
+    "population_2019": 638289,
+    "area_sq_km": 3245.3,
+    "latitude": -0.1804,
+    "longitude": 36.3795,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 37 (Dato #35 Nyandarua) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 19,
+    "iso_code": "KE-19",
+    "name": "Nyeri",
+    "capital": "Nyeri",
+    "population_2019": 759164,
+    "area_sq_km": 3337.1,
+    "latitude": -0.4201,
+    "longitude": 36.9476,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 15,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 38 (Dato #36 Nyeri), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 20,
+    "iso_code": "KE-20",
+    "name": "Kirinyaga",
+    "capital": "Kerugoya",
+    "population_2019": 610411,
+    "area_sq_km": 1478.1,
+    "latitude": -0.4989,
+    "longitude": 37.2803,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 4,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 17 (Dato #15 Kirinyaga), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 21,
+    "iso_code": "KE-21",
+    "name": "Murang'a",
+    "capital": "Murang'a",
+    "population_2019": 1056640,
+    "area_sq_km": 2558.8,
+    "latitude": -0.7211,
+    "longitude": 37.1526,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 3,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 31 (Dato #29 Murang'a), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 22,
+    "iso_code": "KE-22",
+    "name": "Kiambu",
+    "capital": "Kiambu",
+    "population_2019": 2417735,
+    "area_sq_km": 2543.4,
+    "latitude": -1.1714,
+    "longitude": 36.8356,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 16,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 15 (Dato #13 Kiambu), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 23,
+    "iso_code": "KE-23",
+    "name": "Turkana",
+    "capital": "Lodwar",
+    "population_2019": 926976,
+    "area_sq_km": 68680.3,
+    "latitude": 3.1167,
+    "longitude": 35.6,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 45 (Dato #43 Turkana) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 24,
+    "iso_code": "KE-24",
+    "name": "West Pokot",
+    "capital": "Kapenguria",
+    "population_2019": 621241,
+    "area_sq_km": 9169.4,
+    "latitude": 1.2389,
+    "longitude": 35.1119,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 49 (Dato #47 West Pokot) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 25,
+    "iso_code": "KE-25",
+    "name": "Samburu",
+    "capital": "Maralal",
+    "population_2019": 310327,
+    "area_sq_km": 21022.1,
+    "latitude": 1.0969,
+    "longitude": 36.698,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 39 (Dato #37 Samburu) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 26,
+    "iso_code": "KE-26",
+    "name": "Trans Nzoia",
+    "capital": "Kitale",
+    "population_2019": 990341,
+    "area_sq_km": 2495.5,
+    "latitude": 1.0167,
+    "longitude": 35.0,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 44 (Dato #42 Trans Nzoia) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 27,
+    "iso_code": "KE-27",
+    "name": "Uasin Gishu",
+    "capital": "Eldoret",
+    "population_2019": 1163186,
+    "area_sq_km": 3345.2,
+    "latitude": 0.5143,
+    "longitude": 35.2698,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 59,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 46 (Dato #44 Uasin Gishu), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 28,
+    "iso_code": "KE-28",
+    "name": "Elgeyo-Marakwet",
+    "capital": "Iten",
+    "population_2019": 454480,
+    "area_sq_km": 3029.8,
+    "latitude": 0.6703,
+    "longitude": 35.5081,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 7 (Dato #5 Elgeyo-Marakwet) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 29,
+    "iso_code": "KE-29",
+    "name": "Nandi",
+    "capital": "Kapsabet",
+    "population_2019": 885711,
+    "area_sq_km": 2884.5,
+    "latitude": 0.2,
+    "longitude": 35.1,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 34 (Dato #32 Nandi) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 30,
+    "iso_code": "KE-30",
+    "name": "Baringo",
+    "capital": "Kabarnet",
+    "population_2019": 666763,
+    "area_sq_km": 11015.3,
+    "latitude": 0.49,
+    "longitude": 35.74,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 3 (Dato #1 Baringo) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 31,
+    "iso_code": "KE-31",
+    "name": "Laikipia",
+    "capital": "Nanyuki",
+    "population_2019": 518560,
+    "area_sq_km": 9461.8,
+    "latitude": 0.3606,
+    "longitude": 36.782,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 22 (Dato #20 Laikipia) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 32,
+    "iso_code": "KE-32",
+    "name": "Nakuru",
+    "capital": "Nakuru",
+    "population_2019": 2162202,
+    "area_sq_km": 7496.5,
+    "latitude": -0.3031,
+    "longitude": 36.08,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 20,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 33 (Dato #31 Nakuru), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 33,
+    "iso_code": "KE-33",
+    "name": "Narok",
+    "capital": "Narok",
+    "population_2019": 1157873,
+    "area_sq_km": 17933.1,
+    "latitude": -1.0833,
+    "longitude": 35.8667,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 6,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 35 (Dato #33 Narok), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 34,
+    "iso_code": "KE-34",
+    "name": "Kajiado",
+    "capital": "Kajiado",
+    "population_2019": 1117840,
+    "area_sq_km": 21901.0,
+    "latitude": -2.0981,
+    "longitude": 36.782,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 12 (Dato #10 Kajiado) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 35,
+    "iso_code": "KE-35",
+    "name": "Kericho",
+    "capital": "Kericho",
+    "population_2019": 901777,
+    "area_sq_km": 2479.0,
+    "latitude": -0.3689,
+    "longitude": 35.2863,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 5,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 14 (Dato #12 Kericho), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 36,
+    "iso_code": "KE-36",
+    "name": "Bomet",
+    "capital": "Bomet",
+    "population_2019": 875689,
+    "area_sq_km": 2530.9,
+    "latitude": -0.7813,
+    "longitude": 35.3416,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 4 (Dato #2 Bomet) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 37,
+    "iso_code": "KE-37",
+    "name": "Kakamega",
+    "capital": "Kakamega",
+    "population_2019": 1867579,
+    "area_sq_km": 3051.3,
+    "latitude": 0.2827,
+    "longitude": 34.7519,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 9,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 13 (Dato #11 Kakamega), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 38,
+    "iso_code": "KE-38",
+    "name": "Vihiga",
+    "capital": "Mbale",
+    "population_2019": 590013,
+    "area_sq_km": 563.8,
+    "latitude": 0.0765,
+    "longitude": 34.7222,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 47 (Dato #45 Vihiga) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 39,
+    "iso_code": "KE-39",
+    "name": "Bungoma",
+    "capital": "Bungoma",
+    "population_2019": 1670570,
+    "area_sq_km": 3032.2,
+    "latitude": 0.5695,
+    "longitude": 34.5584,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 24,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 5 (Dato #3 Bungoma), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 40,
+    "iso_code": "KE-40",
+    "name": "Busia",
+    "capital": "Busia",
+    "population_2019": 893681,
+    "area_sq_km": 1694.5,
+    "latitude": 0.4608,
+    "longitude": 34.1115,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 6 (Dato #4 Busia) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 41,
+    "iso_code": "KE-41",
+    "name": "Siaya",
+    "capital": "Siaya",
+    "population_2019": 993183,
+    "area_sq_km": 2530.5,
+    "latitude": 0.0607,
+    "longitude": 34.2878,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 40 (Dato #38 Siaya) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 42,
+    "iso_code": "KE-42",
+    "name": "Kisumu",
+    "capital": "Kisumu",
+    "population_2019": 1155574,
+    "area_sq_km": 2085.9,
+    "latitude": -0.0917,
+    "longitude": 34.768,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 23,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 19 (Dato #17 Kisumu), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 43,
+    "iso_code": "KE-43",
+    "name": "Homa Bay",
+    "capital": "Homa Bay",
+    "population_2019": 1131950,
+    "area_sq_km": 3154.7,
+    "latitude": -0.5273,
+    "longitude": 34.4571,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 10 (Dato #8 Homa Bay) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 44,
+    "iso_code": "KE-44",
+    "name": "Migori",
+    "capital": "Migori",
+    "population_2019": 1116436,
+    "area_sq_km": 2596.5,
+    "latitude": -1.0634,
+    "longitude": 34.4731,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 29 (Dato #27 Migori) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 45,
+    "iso_code": "KE-45",
+    "name": "Kisii",
+    "capital": "Kisii",
+    "population_2019": 1266860,
+    "area_sq_km": 1317.5,
+    "latitude": -0.6817,
+    "longitude": 34.7667,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 14,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 18 (Dato #16 Kisii), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 46,
+    "iso_code": "KE-46",
+    "name": "Nyamira",
+    "capital": "Nyamira",
+    "population_2019": 605576,
+    "area_sq_km": 899.4,
+    "latitude": -0.5633,
+    "longitude": 34.9358,
+    "poverty_quintiles": null,
+    "icu_beds_verified": null,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 36 (Dato #34 Nyamira) registra 0 camas; sin fuente verificable de camas UCI operativas (null). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  },
+  {
+    "code": 47,
+    "iso_code": "KE-47",
+    "name": "Nairobi City",
+    "capital": "Nairobi",
+    "population_2019": 4397073,
+    "area_sq_km": 696.0,
+    "latitude": -1.286389,
+    "longitude": 36.817223,
+    "poverty_quintiles": null,
+    "icu_beds_verified": 276,
+    "icu_source": "Barasa et al. (2020) PLOS ONE 15(7):e0236308, S1 Table, Fila 32 (Dato #30 Nairobi), Columna 9 (ICU Beds Total). DOI: 10.1371/journal.pone.0236308.s001",
+    "data_quality_flags": [
+      "verified_knbs_2019_census_table_2_2",
+      "verified_barasa_2020_s1_icu_census",
+      "no_county_poverty_quintiles_unverified_removed"
+    ],
+    "population_source": "KNBS 2019 Kenya Population and Housing Census, Volume I, Table 2.2 (https://www.knbs.or.ke/2019-kenya-population-and-housing-census-results/)",
+    "quintiles_source": null
+  }
+]

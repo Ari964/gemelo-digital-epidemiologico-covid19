@@ -1,0 +1,747 @@
+{
+  "protocolo_version": "v2.0",
+  "ejecutado_en": "2026-10-18T15:15:38.119251",
+  "dataset_raw_sha256": "c82f3cfc5899b25557f3bf69de987dc9628bfa6fbbee55cd77b649c9d34cd2ba",
+  "dataset_raw_file": "data/raw/owid_covid_kenya_raw.csv",
+  "particion_80_20": {
+    "n_total": 226,
+    "n_dev": 181,
+    "n_test": 45,
+    "dev_pct": 80.09,
+    "test_pct": 19.91,
+    "rounding_criterio": "round(0.8 * n_total); test = n_total - n_dev",
+    "dev_fecha_inicio": "2020-04-12",
+    "dev_fecha_fin": "2023-09-24",
+    "test_fecha_inicio": "2023-10-01",
+    "test_fecha_fin": "2024-08-04",
+    "target_variable": "target_weekly_cases",
+    "unidad": "casos semanales confirmados",
+    "frecuencia": "semanal (W-SUN, cierre domingo)",
+    "horizonte": "1 semana hacia adelante (t+1)",
+    "ambito": "Nivel nacional, Kenia (ISO KEN)"
+  },
+  "metrica_principal_validacion": "CV RMSE (TimeSeriesSplit, 5 folds)",
+  "justificacion_metrica": "Tarea de regresión de cantidades (casos semanales). RMSE es pertinente y penaliza errores grandes; MAE se reporta como complementario. No se usa F1 ni AUC-ROC (no hay tarea de clasificación).",
+  "regla_seleccion_campeon": "Mínimo CV RMSE en desarrollo (protocolo ciego ex-ante); el 20% de prueba no se usa para seleccionar.",
+  "campeon": "Baseline_Naive_Persistence",
+  "campeon_test_rmse": 2.9851,
+  "campeon_test_mae": 1.0889,
+  "campeon_test_r2": 0.6544,
+  "campeon_test_mape": 48.7224,
+  "u_de_theil": {
+    "modelo": {
+      "u1": 0.372433,
+      "n": 45,
+      "defined": true,
+      "reason": "U1 de Theil calculado sobre pronóstico vs observado."
+    },
+    "persistencia": {
+      "u1": 0.372433,
+      "n": 45,
+      "defined": true,
+      "reason": "U1 de Theil calculado sobre pronóstico vs observado."
+    },
+    "comparacion": {
+      "u1_modelo": 0.372433,
+      "u1_persistencia": 0.372433,
+      "modelo_mejor_que_persistencia": false,
+      "diferencia": 0.0
+    },
+    "n": 45,
+    "interpretacion": "U1 = 0 indica ajuste perfecto. Valores cercanos a 1 indican que el pronóstico no aporta información respecto a un pronóstico nulo. Si U1(modelo) < U1(persistencia), el modelo supera al baseline de persistencia según este coeficiente."
+  },
+  "pruebas_estadisticas": {
+    "n": 45,
+    "shapiro_wilk": {
+      "statistic": 1.0,
+      "p_value": 1.0,
+      "is_normal": true,
+      "interpretation": "Residuos de diferencia de pérdidas: normalidad no rechazada"
+    },
+    "wilcoxon_paired": {
+      "statistic": 0.0,
+      "p_value_two_sided": null,
+      "interpretation": "Diferencia de errores absolutos pareados estadísticamente significativa (p < 0.05).",
+      "note": "Prueba sobre las mismas fechas y observaciones; no trata folds como observaciones independientes."
+    },
+    "diebold_mariano_hln": {
+      "dm_stat_hln": 0.0,
+      "mean_loss_diff": 0.0,
+      "p_value_two_sided": 1.0,
+      "p_value_formatted": "1.0000e+00",
+      "sample_size": 45,
+      "criterion": "MAE",
+      "interpretation": "p >= 0.05: no se concluye diferencia significativa controlando autocorrelación (HAC Bartlett, HLN 1997)."
+    },
+    "efecto": {
+      "diferencia_media_mae_pers_menos_modelo": 0.0,
+      "desviacion_estandar_diferencias": 0.0,
+      "d_de_cohen": null,
+      "interpretacion_efecto": "tamaño del efecto no computable (varianza cero en diferencias entre errores pareados)"
+    },
+    "advertencia_multiplicidad": "Se realizan múltiples contrastes (Wilcoxon, Diebold-Mariano) sobre la misma muestra de prueba. Los p-valores son nominales; no se aplica corrección de Bonferroni para no ocultar evidencia, pero deben interpretarse con cautela."
+  },
+  "mapa_calor": {
+    "metodo": "Pearson",
+    "justificacion": "Relaciones lineales entre variables numéricas epidemiológicas; las variables son aproximadamente continuas.",
+    "variables": [
+      "weekly_lag_1",
+      "weekly_lag_2",
+      "weekly_lag_3",
+      "weekly_lag_4",
+      "weekly_rolling_mean_4",
+      "weekly_rolling_std_4",
+      "weekly_deaths_lag_1",
+      "weekly_deaths_lag_2",
+      "stringency_lag_1",
+      "reproduction_rate_lag_1",
+      "month",
+      "target_weekly_cases"
+    ],
+    "n_observaciones_utilizadas": 181,
+    "tratamiento_faltantes": "Pares completos (pairwise); correlaciones calculadas sobre observaciones con valores finitos en ambas variables.",
+    "excluidas": "Identificadores (date), columnas constantes y la fecha de corte; no hay variables geográficas inventadas.",
+    "advertencia_causalidad": "Correlación no implica causalidad. Tendencias y autocorrelación de la serie temporal pueden inflar coeficientes. La correlación entre predictores no demuestra por sí sola importancia para el modelo.",
+    "calculado_en": "bloque de desarrollo (80%), sin usar el bloque de prueba reservado.",
+    "figura_png": "D:\\X CICLO\\TRABAJO DE INVESTIGACIÓN\\SEMANA 2\\GD_TI\\docs\\figures\\protocolo_v2\\mapa_calor_correlaciones_desarrollo.png",
+    "figura_svg": "D:\\X CICLO\\TRABAJO DE INVESTIGACIÓN\\SEMANA 2\\GD_TI\\docs\\figures\\protocolo_v2\\mapa_calor_correlaciones_desarrollo.svg",
+    "csv_correlaciones": "D:\\X CICLO\\TRABAJO DE INVESTIGACIÓN\\SEMANA 2\\GD_TI\\docs\\export\\protocolo_v2\\correlaciones_pearson_desarrollo.csv",
+    "matriz_correlacion": {
+      "weekly_lag_1": {
+        "weekly_lag_1": 1.0,
+        "weekly_lag_2": 0.886,
+        "weekly_lag_3": 0.6851,
+        "weekly_lag_4": 0.4633,
+        "weekly_rolling_mean_4": 0.8422,
+        "weekly_rolling_std_4": 0.7815,
+        "weekly_deaths_lag_1": 0.6242,
+        "weekly_deaths_lag_2": 0.5571,
+        "stringency_lag_1": 0.3021,
+        "reproduction_rate_lag_1": 0.3775,
+        "month": -0.0187,
+        "target_weekly_cases": 0.886
+      },
+      "weekly_lag_2": {
+        "weekly_lag_1": 0.886,
+        "weekly_lag_2": 1.0,
+        "weekly_lag_3": 0.886,
+        "weekly_lag_4": 0.6851,
+        "weekly_rolling_mean_4": 0.9594,
+        "weekly_rolling_std_4": 0.75,
+        "weekly_deaths_lag_1": 0.6738,
+        "weekly_deaths_lag_2": 0.6241,
+        "stringency_lag_1": 0.3191,
+        "reproduction_rate_lag_1": 0.1368,
+        "month": -0.0393,
+        "target_weekly_cases": 0.6851
+      },
+      "weekly_lag_3": {
+        "weekly_lag_1": 0.6851,
+        "weekly_lag_2": 0.886,
+        "weekly_lag_3": 1.0,
+        "weekly_lag_4": 0.886,
+        "weekly_rolling_mean_4": 0.9594,
+        "weekly_rolling_std_4": 0.6505,
+        "weekly_deaths_lag_1": 0.673,
+        "weekly_deaths_lag_2": 0.6737,
+        "stringency_lag_1": 0.3251,
+        "reproduction_rate_lag_1": -0.0353,
+        "month": -0.0314,
+        "target_weekly_cases": 0.4634
+      },
+      "weekly_lag_4": {
+        "weekly_lag_1": 0.4633,
+        "weekly_lag_2": 0.6851,
+        "weekly_lag_3": 0.886,
+        "weekly_lag_4": 1.0,
+        "weekly_rolling_mean_4": 0.8421,
+        "weekly_rolling_std_4": 0.5842,
+        "weekly_deaths_lag_1": 0.6243,
+        "weekly_deaths_lag_2": 0.6729,
+        "stringency_lag_1": 0.325,
+        "reproduction_rate_lag_1": -0.1484,
+        "month": -0.0284,
+        "target_weekly_cases": 0.2914
+      },
+      "weekly_rolling_mean_4": {
+        "weekly_lag_1": 0.8422,
+        "weekly_lag_2": 0.9594,
+        "weekly_lag_3": 0.9594,
+        "weekly_lag_4": 0.8421,
+        "weekly_rolling_mean_4": 1.0,
+        "weekly_rolling_std_4": 0.7677,
+        "weekly_deaths_lag_1": 0.7203,
+        "weekly_deaths_lag_2": 0.7015,
+        "stringency_lag_1": 0.3528,
+        "reproduction_rate_lag_1": 0.0918,
+        "month": -0.0327,
+        "target_weekly_cases": 0.6455
+      },
+      "weekly_rolling_std_4": {
+        "weekly_lag_1": 0.7815,
+        "weekly_lag_2": 0.75,
+        "weekly_lag_3": 0.6505,
+        "weekly_lag_4": 0.5842,
+        "weekly_rolling_mean_4": 0.7677,
+        "weekly_rolling_std_4": 1.0,
+        "weekly_deaths_lag_1": 0.3321,
+        "weekly_deaths_lag_2": 0.295,
+        "stringency_lag_1": 0.1967,
+        "reproduction_rate_lag_1": 0.1702,
+        "month": -0.2057,
+        "target_weekly_cases": 0.651
+      },
+      "weekly_deaths_lag_1": {
+        "weekly_lag_1": 0.6242,
+        "weekly_lag_2": 0.6738,
+        "weekly_lag_3": 0.673,
+        "weekly_lag_4": 0.6243,
+        "weekly_rolling_mean_4": 0.7203,
+        "weekly_rolling_std_4": 0.3321,
+        "weekly_deaths_lag_1": 1.0,
+        "weekly_deaths_lag_2": 0.8687,
+        "stringency_lag_1": 0.4276,
+        "reproduction_rate_lag_1": 0.136,
+        "month": 0.1488,
+        "target_weekly_cases": 0.5573
+      },
+      "weekly_deaths_lag_2": {
+        "weekly_lag_1": 0.5571,
+        "weekly_lag_2": 0.6241,
+        "weekly_lag_3": 0.6737,
+        "weekly_lag_4": 0.6729,
+        "weekly_rolling_mean_4": 0.7015,
+        "weekly_rolling_std_4": 0.295,
+        "weekly_deaths_lag_1": 0.8687,
+        "weekly_deaths_lag_2": 1.0,
+        "stringency_lag_1": 0.4238,
+        "reproduction_rate_lag_1": 0.072,
+        "month": 0.1661,
+        "target_weekly_cases": 0.4701
+      },
+      "stringency_lag_1": {
+        "weekly_lag_1": 0.3021,
+        "weekly_lag_2": 0.3191,
+        "weekly_lag_3": 0.3251,
+        "weekly_lag_4": 0.325,
+        "weekly_rolling_mean_4": 0.3528,
+        "weekly_rolling_std_4": 0.1967,
+        "weekly_deaths_lag_1": 0.4276,
+        "weekly_deaths_lag_2": 0.4238,
+        "stringency_lag_1": 1.0,
+        "reproduction_rate_lag_1": 0.4074,
+        "month": -0.0847,
+        "target_weekly_cases": 0.2775
+      },
+      "reproduction_rate_lag_1": {
+        "weekly_lag_1": 0.3775,
+        "weekly_lag_2": 0.1368,
+        "weekly_lag_3": -0.0353,
+        "weekly_lag_4": -0.1484,
+        "weekly_rolling_mean_4": 0.0918,
+        "weekly_rolling_std_4": 0.1702,
+        "weekly_deaths_lag_1": 0.136,
+        "weekly_deaths_lag_2": 0.072,
+        "stringency_lag_1": 0.4074,
+        "reproduction_rate_lag_1": 1.0,
+        "month": 0.2128,
+        "target_weekly_cases": 0.5922
+      },
+      "month": {
+        "weekly_lag_1": -0.0187,
+        "weekly_lag_2": -0.0393,
+        "weekly_lag_3": -0.0314,
+        "weekly_lag_4": -0.0284,
+        "weekly_rolling_mean_4": -0.0327,
+        "weekly_rolling_std_4": -0.2057,
+        "weekly_deaths_lag_1": 0.1488,
+        "weekly_deaths_lag_2": 0.1661,
+        "stringency_lag_1": -0.0847,
+        "reproduction_rate_lag_1": 0.2128,
+        "month": 1.0,
+        "target_weekly_cases": 0.0798
+      },
+      "target_weekly_cases": {
+        "weekly_lag_1": 0.886,
+        "weekly_lag_2": 0.6851,
+        "weekly_lag_3": 0.4634,
+        "weekly_lag_4": 0.2914,
+        "weekly_rolling_mean_4": 0.6455,
+        "weekly_rolling_std_4": 0.651,
+        "weekly_deaths_lag_1": 0.5573,
+        "weekly_deaths_lag_2": 0.4701,
+        "stringency_lag_1": 0.2775,
+        "reproduction_rate_lag_1": 0.5922,
+        "month": 0.0798,
+        "target_weekly_cases": 1.0
+      }
+    }
+  },
+  "figuras": {
+    "particion_80_20": "D:\\X CICLO\\TRABAJO DE INVESTIGACIÓN\\SEMANA 2\\GD_TI\\docs\\figures\\protocolo_v2\\particion_temporal_80_20.png",
+    "observados_vs_predicciones": "D:\\X CICLO\\TRABAJO DE INVESTIGACIÓN\\SEMANA 2\\GD_TI\\docs\\figures\\protocolo_v2\\observados_vs_predicciones_test.png",
+    "residuos": "D:\\X CICLO\\TRABAJO DE INVESTIGACIÓN\\SEMANA 2\\GD_TI\\docs\\figures\\protocolo_v2\\residuos_distribucion_errores.png",
+    "mapa_calor": "D:\\X CICLO\\TRABAJO DE INVESTIGACIÓN\\SEMANA 2\\GD_TI\\docs\\figures\\protocolo_v2\\mapa_calor_correlaciones_desarrollo.png"
+  },
+  "exportaciones": {
+    "auditoria_temporal": "D:\\X CICLO\\TRABAJO DE INVESTIGACIÓN\\SEMANA 2\\GD_TI\\docs\\export\\protocolo_v2\\auditoria_temporal_predicciones.csv",
+    "observados_vs_predicciones_csv": "D:\\X CICLO\\TRABAJO DE INVESTIGACIÓN\\SEMANA 2\\GD_TI\\docs\\export\\protocolo_v2\\observados_vs_predicciones_test.csv",
+    "residuos_csv": "D:\\X CICLO\\TRABAJO DE INVESTIGACIÓN\\SEMANA 2\\GD_TI\\docs\\export\\protocolo_v2\\residuos_campeon_test.csv",
+    "correlaciones_csv": "D:\\X CICLO\\TRABAJO DE INVESTIGACIÓN\\SEMANA 2\\GD_TI\\docs\\export\\protocolo_v2\\correlaciones_pearson_desarrollo.csv"
+  },
+  "resultados_por_modelo": {
+    "Baseline_Naive_Persistence": {
+      "cv_rmse_5fold": 1121.1226,
+      "best_params": {
+        "strategy": "persistence_weekly_lag_1",
+        "no_tuning": true
+      },
+      "fold_metrics": [
+        {
+          "fold": 1,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2020-11-08",
+          "val_start_date": "2020-11-15",
+          "val_end_date": "2021-06-06",
+          "train_samples": 31,
+          "val_samples": 30,
+          "val_rmse": 1067.733,
+          "val_mae": 862.9667,
+          "val_r2": 0.8298
+        },
+        {
+          "fold": 2,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2021-06-06",
+          "val_start_date": "2021-06-13",
+          "val_end_date": "2022-01-02",
+          "train_samples": 61,
+          "val_samples": 30,
+          "val_rmse": 2743.4512,
+          "val_mae": 1303.7667,
+          "val_r2": 0.6031
+        },
+        {
+          "fold": 3,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2022-01-02",
+          "val_start_date": "2022-01-09",
+          "val_end_date": "2022-07-31",
+          "train_samples": 91,
+          "val_samples": 30,
+          "val_rmse": 1587.2962,
+          "val_mae": 701.0667,
+          "val_r2": 0.6391
+        },
+        {
+          "fold": 4,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2022-07-31",
+          "val_start_date": "2022-08-07",
+          "val_end_date": "2023-02-26",
+          "train_samples": 121,
+          "val_samples": 30,
+          "val_rmse": 121.48,
+          "val_mae": 82.8,
+          "val_r2": 0.5846
+        },
+        {
+          "fold": 5,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2023-02-26",
+          "val_start_date": "2023-03-05",
+          "val_end_date": "2023-09-24",
+          "train_samples": 151,
+          "val_samples": 30,
+          "val_rmse": 85.6528,
+          "val_mae": 45.3333,
+          "val_r2": -0.6621
+        }
+      ],
+      "dev_metrics": {
+        "rmse": 1391.4442,
+        "mae": 575.6188,
+        "r2": 0.772
+      },
+      "test_metrics": {
+        "rmse": 2.9851,
+        "mae": 1.0889,
+        "r2": 0.6544
+      },
+      "test_mape": 48.7224,
+      "rol": "CAMPEON_PREDICTIVO"
+    },
+    "Baseline_Ridge_Regression": {
+      "cv_rmse_5fold": 1345.5058,
+      "best_params": {
+        "regressor__alpha": 10.0
+      },
+      "fold_metrics": [
+        {
+          "fold": 1,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2020-11-08",
+          "val_start_date": "2020-11-15",
+          "val_end_date": "2021-06-06",
+          "train_samples": 31,
+          "val_samples": 30,
+          "val_rmse": 969.0673,
+          "val_mae": 660.9486,
+          "val_r2": 0.8598
+        },
+        {
+          "fold": 2,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2021-06-06",
+          "val_start_date": "2021-06-13",
+          "val_end_date": "2022-01-02",
+          "train_samples": 61,
+          "val_samples": 30,
+          "val_rmse": 1973.0308,
+          "val_mae": 1185.826,
+          "val_r2": 0.7947
+        },
+        {
+          "fold": 3,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2022-01-02",
+          "val_start_date": "2022-01-09",
+          "val_end_date": "2022-07-31",
+          "train_samples": 91,
+          "val_samples": 30,
+          "val_rmse": 1905.2008,
+          "val_mae": 1298.4364,
+          "val_r2": 0.4801
+        },
+        {
+          "fold": 4,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2022-07-31",
+          "val_start_date": "2022-08-07",
+          "val_end_date": "2023-02-26",
+          "train_samples": 121,
+          "val_samples": 30,
+          "val_rmse": 1033.2088,
+          "val_mae": 648.1703,
+          "val_r2": -29.0526
+        },
+        {
+          "fold": 5,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2023-02-26",
+          "val_start_date": "2023-03-05",
+          "val_end_date": "2023-09-24",
+          "train_samples": 151,
+          "val_samples": 30,
+          "val_rmse": 75.8191,
+          "val_mae": 36.5333,
+          "val_r2": -0.3024
+        }
+      ],
+      "dev_metrics": {
+        "rmse": 968.4693,
+        "mae": 513.7892,
+        "r2": 0.8896
+      },
+      "test_metrics": {
+        "rmse": 5.4995,
+        "mae": 2.1111,
+        "r2": -0.1728
+      },
+      "test_mape": 24.4444,
+      "rol": "COMPARATIVO"
+    },
+    "Candidate_Random_Forest": {
+      "cv_rmse_5fold": 1156.1578,
+      "best_params": {
+        "regressor__max_depth": 8,
+        "regressor__min_samples_split": 2,
+        "regressor__n_estimators": 100
+      },
+      "fold_metrics": [
+        {
+          "fold": 1,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2020-11-08",
+          "val_start_date": "2020-11-15",
+          "val_end_date": "2021-06-06",
+          "train_samples": 31,
+          "val_samples": 30,
+          "val_rmse": 1625.414,
+          "val_mae": 1268.3318,
+          "val_r2": 0.6055
+        },
+        {
+          "fold": 2,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2021-06-06",
+          "val_start_date": "2021-06-13",
+          "val_end_date": "2022-01-02",
+          "train_samples": 61,
+          "val_samples": 30,
+          "val_rmse": 2749.0456,
+          "val_mae": 1395.0215,
+          "val_r2": 0.6015
+        },
+        {
+          "fold": 3,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2022-01-02",
+          "val_start_date": "2022-01-09",
+          "val_end_date": "2022-07-31",
+          "train_samples": 91,
+          "val_samples": 30,
+          "val_rmse": 1130.2824,
+          "val_mae": 715.6352,
+          "val_r2": 0.817
+        },
+        {
+          "fold": 4,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2022-07-31",
+          "val_start_date": "2022-08-07",
+          "val_end_date": "2023-02-26",
+          "train_samples": 121,
+          "val_samples": 30,
+          "val_rmse": 199.0969,
+          "val_mae": 160.2581,
+          "val_r2": -0.1159
+        },
+        {
+          "fold": 5,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2023-02-26",
+          "val_start_date": "2023-03-05",
+          "val_end_date": "2023-09-24",
+          "train_samples": 151,
+          "val_samples": 30,
+          "val_rmse": 76.9499,
+          "val_mae": 58.8507,
+          "val_r2": -0.3415
+        }
+      ],
+      "dev_metrics": {
+        "rmse": 311.4102,
+        "mae": 142.3697,
+        "r2": 0.9886
+      },
+      "test_metrics": {
+        "rmse": 147.5126,
+        "mae": 137.301,
+        "r2": -842.8138
+      },
+      "test_mape": 13059.2742,
+      "rol": "COMPARATIVO"
+    },
+    "Candidate_HistGradientBoosting": {
+      "cv_rmse_5fold": 1732.4273,
+      "best_params": {
+        "regressor__learning_rate": 0.05,
+        "regressor__max_iter": 80,
+        "regressor__max_leaf_nodes": 7
+      },
+      "fold_metrics": [
+        {
+          "fold": 1,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2020-11-08",
+          "val_start_date": "2020-11-15",
+          "val_end_date": "2021-06-06",
+          "train_samples": 31,
+          "val_samples": 30,
+          "val_rmse": 3094.494,
+          "val_mae": 2265.8043,
+          "val_r2": -0.4299
+        },
+        {
+          "fold": 2,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2021-06-06",
+          "val_start_date": "2021-06-13",
+          "val_end_date": "2022-01-02",
+          "train_samples": 61,
+          "val_samples": 30,
+          "val_rmse": 3274.2332,
+          "val_mae": 1742.9831,
+          "val_r2": 0.4347
+        },
+        {
+          "fold": 3,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2022-01-02",
+          "val_start_date": "2022-01-09",
+          "val_end_date": "2022-07-31",
+          "train_samples": 91,
+          "val_samples": 30,
+          "val_rmse": 1819.6474,
+          "val_mae": 1464.8039,
+          "val_r2": 0.5257
+        },
+        {
+          "fold": 4,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2022-07-31",
+          "val_start_date": "2022-08-07",
+          "val_end_date": "2023-02-26",
+          "train_samples": 121,
+          "val_samples": 30,
+          "val_rmse": 381.4598,
+          "val_mae": 212.2199,
+          "val_r2": -3.0964
+        },
+        {
+          "fold": 5,
+          "train_start_date": "2020-04-12",
+          "train_end_date": "2023-02-26",
+          "val_start_date": "2023-03-05",
+          "val_end_date": "2023-09-24",
+          "train_samples": 151,
+          "val_samples": 30,
+          "val_rmse": 81.4105,
+          "val_mae": 59.1293,
+          "val_r2": -0.5016
+        }
+      ],
+      "dev_metrics": {
+        "rmse": 1123.2172,
+        "mae": 396.8141,
+        "r2": 0.8514
+      },
+      "test_metrics": {
+        "rmse": 62.0461,
+        "mae": 60.5147,
+        "r2": -148.2854
+      },
+      "test_mape": 5394.1381,
+      "rol": "COMPARATIVO"
+    }
+  },
+  "interpretabilidad_explicabilidad": {
+    "particion_80_20": {
+      "id": "particion_80_20",
+      "titulo": "Partición temporal 80/20 (desarrollo vs prueba reservada)",
+      "interpretabilidad": {
+        "que_representa": "División cronológica de las 226 semanas epidemiológicas semanales de Kenia (2020-04-12 a 2024-08-04) en un bloque de desarrollo (80%) y un bloque de prueba final reservado (20%), sin mezcla aleatoria.",
+        "variables_unidades_periodo_poblacion": "Variable objetivo: casos semanales confirmados (target_weekly_cases), unidad: casos/semana. Población: Kenia, nivel nacional (ISO KEN). Periodo desarrollo: 2020-04-12 a 2023-09-24. Periodo prueba: 2023-10-01 a 2024-08-04.",
+        "como_leer": "Barras azules = desarrollo/entrenamiento (primeras 181 semanas, 80.09%); barras grises = prueba reservada (últimas 45 semanas, 19.91%). Línea vertical = corte cronológico. Sin solapamiento entre bloques.",
+        "hallazgo_concreto": "El campeón se selecciona usando solo el bloque de desarrollo; el bloque de prueba (45 semanas, 2023-10-01 a 2024-08-04) queda totalmente fuera de muestra y no influye en la selección ni el ajuste de hiperparámetros.",
+        "alcance_y_limites": "Partición estrictamente temporal, protocolo 80/20. Redondeo: round(0.8 * n_total); test = n_total - n_dev. No es aleatoria; respeta el orden cronológico y evita fuga de información futura."
+      },
+      "explicabilidad": {
+        "datos_y_transformaciones": "CSV semanales procesados generados por scripts/eda_and_data_prep.py, ordenados por fecha y concatenados sin mezcla aleatoria.",
+        "metodo_modelo_prueba": "Partición cronológica simple: primeras 181 observaciones = desarrollo, últimas 45 = prueba.",
+        "parametros_y_supuestos": "n_total=226, n_dev=181, n_test=45, semilla: N/A (sin aleatorización).",
+        "procedimiento_genera_resultado": "Se ordena por fecha y se parte por posición; no hay entrenamiento sobre datos futuros. El 20% se reserva antes de cualquier entrenamiento.",
+        "limitaciones_y_fuentes_error": "Si el horizonte de predicción cambiara, habría que redefinir el corte; la partición asume horizonte de 1 semana (t+1)."
+      }
+    },
+    "resultados_por_modelo": {
+      "id": "resultados_por_modelo",
+      "titulo": "Cuadro de comparación de modelos (validación en desarrollo y prueba reservada)",
+      "interpretabilidad": {
+        "que_representa": "Métricas de desempeño de cuatro modelos (persistencia ingenua, Ridge, Random Forest, HistGradientBoosting) en validación cruzada temporal de 5 folds sobre el desarrollo y en el prueba reservado.",
+        "variables_unidades_periodo_poblacion": "CV RMSE (casos/semana), Test RMSE, Test MAE, Test R², mejor hiperparámetro por modelo. Ámbito: Kenia nacional, casos semanales.",
+        "como_leer": "Cada fila = un modelo. Columna 'rol': campeón predictivo (seleccionado ex-ante por CV RMSE en desarrollo), baseline de persistencia o comparativo. Los valores de prueba son referencia y NO se usaron para elegir al campeón.",
+        "hallazgo_concreto": "Campeón predictivo: Baseline_Naive_Persistence con CV RMSE 1121.1226 casos/semana en desarrollo. En prueba: RMSE 2.9851, MAE 1.0889. El resto son comparativos o baseline.",
+        "alcance_y_limites": "El cuadro distingue desarrollo (selección) de prueba (evaluación ciega). No se declara superioridad causal; solo errores observados."
+      },
+      "explicabilidad": {
+        "datos_y_transformaciones": "DataFrames semanales; TimeSeriesSplit(n_splits=5) y GridSearchCV con scoring neg_root_mean_squared_error.",
+        "metodo_modelo_prueba": "Validación cruzada temporal (expanding window) sin solapamiento; imputación/escalado ajustados solo en train de cada fold; persistencia sin hiperparámetros.",
+        "parametros_y_supuestos": "Grid de hiperparámetros por modelo; random_state=42.",
+        "procedimiento_genera_resultado": "GridSearchCV reentrena en cada ventana train del fold y evalúa en la ventana val inmediatamente posterior.",
+        "limitaciones_y_fuentes_error": "El campeón se elige sin ver el test; cambiar el campeón por el test sería data snooping."
+      }
+    },
+    "observados_vs_predicciones": {
+      "id": "observados_vs_predicciones",
+      "titulo": "Observados frente a predicciones (prueba reservada, últimas 45 semanas)",
+      "interpretabilidad": {
+        "que_representa": "Serie temporal de casos observados reales (OWID/OMS) y predicciones de un paso (t+1) del campeón, la persistencia, Ridge y Random Forest sobre el bloque de prueba.",
+        "variables_unidades_periodo_poblacion": "Eje X: fecha de cierre semanal (domingo). Eje Y: casos semanales. Colores por modelo según leyenda. Periodo: 2023-10-01 a 2024-08-04.",
+        "como_leer": "La línea del campeón debe seguir la de observados. Cuanto más cercanas, mejor el ajuste. En semanas de incidencia cero o cercana a cero, todos los modelos tienden a predecir cerca de cero.",
+        "hallazgo_concreto": "Durante el periodo endémico de baja incidencia (2023-10-01 a 2024-08-04), los casos observados son predominantemente cercanos a cero y el campeón (persistencia) los rastrea con error bajo (MAE 1.0889).",
+        "alcance_y_limites": "Gráfico de un paso (t+1), no recursivo multietapa. Cada predicción usa información conocida hasta t0. No se usan observaciones reales futuras como si estuvieran disponibles al emitir el pronóstico."
+      },
+      "explicabilidad": {
+        "datos_y_transformaciones": "Series de prueba y predicciones almacenadas del protocolo v2.0.",
+        "metodo_modelo_prueba": "Predicción de un paso adelante con el modelo campeón entrenado en desarrollo completo; trazabilidad punto a punto observado vs predicho.",
+        "parametros_y_supuestos": "Horizonte fijo de 1 semana; modelos entrenados con semilla fija (42).",
+        "procedimiento_genera_resultado": "Se itera sobre fechas del test y se compara predicción vs observado real de la semana siguiente (t+1).",
+        "limitaciones_y_fuentes_error": "No es pronóstico recursivo multietapa; si se requiriera varios pasos adelante, se acumularía error de propagación."
+      }
+    },
+    "residuos": {
+      "id": "residuos_distribucion_errores",
+      "titulo": "Residuos y distribución de errores del campeón (prueba reservada)",
+      "interpretabilidad": {
+        "que_representa": "Gráfico de dispersión de residuos (observado - predicho) a lo largo del tiempo y histograma de su distribución, para el campeón en el bloque de prueba.",
+        "variables_unidades_periodo_poblacion": "Eje X (izq): fecha. Eje Y (izq): residuo en casos. Eje X (der): magnitud del residuo. Eje Y (der): frecuencia (conteo de semanas).",
+        "como_leer": "Puntos dispersos alrededor de cero sin patrón sistemático = errores no sesgados. Histograma centrado en cero = ausencia de sesgo de sobre/subestimación.",
+        "hallazgo_concreto": "Media de residuos cercana a cero; la dispersión refleja la baja incidencia del periodo de prueba (muchas semanas con 0-1 caso).",
+        "alcance_y_limites": "Residuos calculados sobre las 45 semanas de prueba fuera de muestra. El histograma muestra la distribución empírica de errores."
+      },
+      "explicabilidad": {
+        "datos_y_transformaciones": "Residuos = observado - predicho del campeón en prueba.",
+        "metodo_modelo_prueba": "Resta elemento a elemento de arrays numpy; histograma con 15 bins; línea de media marcada.",
+        "parametros_y_supuestos": "Sin parámetros adicionales; visualización exploratoria de errores.",
+        "procedimiento_genera_resultado": "Se calcula sobre los 45 puntos del bloque de prueba, fuera de muestra del campeón.",
+        "limitaciones_y_fuentes_error": "La dispersión está condicionada por la baja incidencia (casi todo cerca de cero); no representa periodos de alta transmisión."
+      }
+    },
+    "mapa_calor": {
+      "id": "mapa_calor_correlaciones_desarrollo",
+      "titulo": "Mapa de calor de correlaciones (Pearson) de variables epidemiológicas",
+      "interpretabilidad": {
+        "que_representa": "Matriz de correlaciones de Pearson entre las variables numéricas epidemiológicas relevantes, calculada solo en el bloque de desarrollo.",
+        "variables_unidades_periodo_poblacion": "Coeficientes de correlación de Pearson entre pares de variables. N observaciones: 181.",
+        "como_leer": "Colores rojos = correlación positiva, azules = negativa. Centro (cero) = blanco en paleta divergente. Valores cercanos a ±1 = fuerte relación lineal.",
+        "hallazgo_concreto": "Las correlaciones más altas se observan entre los rezagos de casos semanales (weekly_lag_1 a 4). Las variables de políticas (stringency) y tasa de reproducción muestran alta falta de datos post-2022.",
+        "alcance_y_limites": "Mapa calculado exclusivamente en el bloque de desarrollo, sin usar la prueba reservada para decisiones de selección de variables."
+      },
+      "explicabilidad": {
+        "datos_y_transformaciones": "DataFrame del bloque de desarrollo; columnas numéricas epidemiológicas de WEEKLY_FEATURES + target.",
+        "metodo_modelo_prueba": "Correlación de Pearson. Tratamiento de faltantes: pares completos (pairwise).",
+        "parametros_y_supuestos": "Variables excluidas: identificador (date), columnas constantes, sin variables geográficas inventadas.",
+        "procedimiento_genera_resultado": "df_dev[numeric_cols].corr(method='pearson'); exportación a CSV y figura PNG/SVG a 500 dpi, fondo blanco. Se calcula solo en desarrollo, nunca usando el bloque de prueba.",
+        "limitaciones_y_fuentes_error": "Sin hiperparámetros; método paramétrico que asume linealidad. Correlación no implica causalidad; tendencias y autocorrelación pueden inflar coeficientes."
+      }
+    },
+    "u_de_theil": {
+      "id": "u_de_theil",
+      "titulo": "Coeficiente U de Theil (variante U1) del campeón vs persistencia",
+      "interpretabilidad": {
+        "que_representa": "Coeficiente U1 de Theil que compara el error cuadrático del pronóstico del campeón y del baseline de persistencia sobre las mismas fechas, horizonte y observaciones del bloque de prueba.",
+        "variables_unidades_periodo_poblacion": "U1 adimensional en [0,1]. n = 45 semanas evaluadas. Periodo: 2023-10-01 a 2024-08-04.",
+        "como_leer": "U1 = 0 indica ajuste perfecto; valores cercanos a 1 indican que el pronóstico no aporta información respecto a un pronóstico nulo. Si U1(modelo) < U1(persistencia), el modelo supera al baseline según este coeficiente.",
+        "hallazgo_concreto": "U1(campeón) = 0.372433 y U1(persistencia) = 0.372433. Como el campeón es la persistencia, ambos coeficientes coinciden (diferencia = 0.0), resultado honesto de los datos.",
+        "alcance_y_limites": "Variante U1 (Theil's inequality coefficient), NO U2 ni niveles. Fórmula: sqrt(sum((f-o)^2)) / sqrt(sum(f^2) + sum(o^2)). Referencia: Theil (1966)."
+      },
+      "explicabilidad": {
+        "datos_y_transformaciones": "Mismo conjunto de fechas, horizonte (t+1) y observaciones para modelo y baseline (n = 45).",
+        "metodo_modelo_prueba": "Sin constantes arbitrarias; denominador nulo controlado.",
+        "parametros_y_supuestos": "Cálculo elemento a elemento sobre arrays de pronóstico y observado, con máscara de valores finitos.",
+        "procedimiento_genera_resultado": "Referencia primaria: Theil, H. (1966). No se añaden constantes para forzar finitud.",
+        "limitaciones_y_fuentes_error": "U de Theil es una métrica descriptiva; no reemplaza las pruebas estadísticas."
+      }
+    },
+    "pruebas_estadisticas": {
+      "id": "pruebas_estadisticas",
+      "titulo": "Batería de pruebas estadísticas (prueba reservada, N=45 semanas)",
+      "interpretabilidad": {
+        "que_representa": "Contrastes de hipótesis sobre errores absolutos pareados entre el campeón y el baseline de persistencia en las mismas fechas del bloque de prueba.",
+        "variables_unidades_periodo_poblacion": "Estadístico W (Wilcoxon), DM* (Diebold-Mariano HLN), p-valor, tamaño de efecto d de Cohen. n = 45 semanas.",
+        "como_leer": "p < 0.05 sugiere evidencia contra la igualdad de errores; p >= 0.05 indica que no se rechaza la igualdad. La ausencia de significancia no se interpreta como equivalencia.",
+        "hallazgo_concreto": "Resultados nominales reportados sin corrección de comparaciones múltiples; interpretarse con cautela. No se trata a los 5 folds como observaciones independientes.",
+        "alcance_y_limites": "Pruebas justificadas por la dependencia temporal de errores: Wilcoxon pareado (mismas fechas) y Diebold-Mariano con corrección HLN (autocorrelación)."
+      },
+      "explicabilidad": {
+        "datos_y_transformaciones": "H0: errores iguales entre campeón y persistencia. H1: errores distintos. Nivel de significancia 0.05 (nominal).",
+        "metodo_modelo_prueba": "No hay ajuste de Bonferroni; Shapiro-Wilk informativo (no decisivo).",
+        "parametros_y_supuestos": "Errores absolutos pareados alineados por fecha; estadísticos de scipy.stats.",
+        "procedimiento_genera_resultado": "Wilcoxon y Diebold-Mariano sobre las mismas fechas y observaciones; tamaño de muestra = 45 semanas.",
+        "limitaciones_y_fuentes_error": "Muestreo temporal no independiente; los p-valores son nominales y deben interpretarse con prudencia."
+      }
+    }
+  }
+}

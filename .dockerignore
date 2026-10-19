@@ -1,0 +1,48 @@
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Node dependencies and build
+node_modules/
+dist/
+build/
+.npm/
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local databases (MUST not bake local state into Docker image)
+*.db
+*.sqlite
+*.sqlite3
+*.bak
+
+# Archives and packages
+*.zip
+*.tar.gz
+*.rar
+
+# Git and IDE configs
+.git/
+.gitignore
+.github/
+.agents/
+.gemini/
+.vscode/
+.idea/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/

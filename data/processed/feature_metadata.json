@@ -1,0 +1,81 @@
+{
+  "dataset_name": "Kenya COVID-19 Official Surveillance Data",
+  "processed_at": "2026-09-23T10:54:21.587857",
+  "canonical_frequency": "WEEKLY (Semanas Epidemiológicas OMS/MoH Kenia)",
+  "weekly_summary": {
+    "total_weeks": 226,
+    "train_weeks": 116,
+    "val_weeks": 39,
+    "test_weeks": 71,
+    "features": [
+      "weekly_lag_1",
+      "weekly_lag_2",
+      "weekly_lag_3",
+      "weekly_lag_4",
+      "weekly_rolling_mean_4",
+      "weekly_rolling_std_4",
+      "weekly_deaths_lag_1",
+      "weekly_deaths_lag_2",
+      "stringency_lag_1",
+      "reproduction_rate_lag_1",
+      "month"
+    ],
+    "target": "target_weekly_cases"
+  },
+  "daily_summary": {
+    "total_days": 1592,
+    "train_days": 826,
+    "val_days": 274,
+    "test_days": 492,
+    "features": [
+      "lag_1",
+      "lag_2",
+      "lag_3",
+      "lag_7",
+      "lag_14",
+      "rolling_mean_7",
+      "rolling_std_7",
+      "rolling_mean_14",
+      "deaths_lag_1",
+      "deaths_lag_7",
+      "stringency_lag_1",
+      "stringency_lag_7",
+      "reproduction_rate_lag_1",
+      "day_of_week",
+      "month"
+    ],
+    "target": "target"
+  },
+  "row_reconciliation": [
+    {
+      "Etapa": "1. Archivo crudo descargado (owid_covid_kenya_raw.csv)",
+      "Registros": 1674,
+      "Rango Fechas": "2020-01-05 a 2024-08-04",
+      "Motivo / Justificación": "Extracción íntegra sin filtros del archivo global OWID para ISO KEN."
+    },
+    {
+      "Etapa": "2. Exclusión período pre-epidémico",
+      "Registros": -68,
+      "Rango Fechas": "2020-01-05 a 2020-03-12",
+      "Motivo / Justificación": "68 días previos a la detección del paciente cero de COVID-19 en Kenia."
+    },
+    {
+      "Etapa": "3. Ingesta oficial en BD (dataset_observations)",
+      "Registros": 1606,
+      "Rango Fechas": "2020-03-13 a 2024-08-04",
+      "Motivo / Justificación": "Período epidemiológico oficial activo sincronizado en la base de datos."
+    },
+    {
+      "Etapa": "4. Exclusión de buffer de rezagos causales (14 días)",
+      "Registros": -14,
+      "Rango Fechas": "2020-03-13 a 2020-03-26",
+      "Motivo / Justificación": "Requerido para construir lag_14 y rolling_mean_14 sin imputar ceros ficticios."
+    },
+    {
+      "Etapa": "5. Conjunto total para modelado diario (Train+Val+Test)",
+      "Registros": 1592,
+      "Rango Fechas": "2020-03-27 a 2024-08-04",
+      "Motivo / Justificación": "Partición: Train (826) + Val (274) + Test (492) = 1,592 días."
+    }
+  ]
+}

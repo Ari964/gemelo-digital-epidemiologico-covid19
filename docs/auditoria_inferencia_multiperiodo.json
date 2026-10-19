@@ -1,0 +1,79 @@
+[
+  {
+    "cutoff_t0": "2021-07-11",
+    "regime": "Alta transmisión (Ola Delta en Train)",
+    "horizon_t1": "2021-07-18",
+    "observed_t0 (lag_1)": 2922.0,
+    "observed_t1": 3922.0,
+    "naive_pred": 2922.0,
+    "naive_mae": 1000.0,
+    "rf_pred": 3270.26,
+    "rf_mae": 651.74
+  },
+  {
+    "cutoff_t0": "2022-12-18",
+    "regime": "Transición / moderada transmisión (Omicron tardío en Val)",
+    "horizon_t1": "2022-12-25",
+    "observed_t0 (lag_1)": 183.0,
+    "observed_t1": 363.0,
+    "naive_pred": 183.0,
+    "naive_mae": 180.0,
+    "rf_pred": 276.28,
+    "rf_mae": 86.72
+  },
+  {
+    "cutoff_t0": "2023-04-02",
+    "regime": "Inicio del Test Reservado (Transición a endemia plana)",
+    "horizon_t1": "2023-04-09",
+    "observed_t0 (lag_1)": 16.0,
+    "observed_t1": 9.0,
+    "naive_pred": 16.0,
+    "naive_mae": 7.0,
+    "rf_pred": 69.91,
+    "rf_mae": 60.91
+  },
+  {
+    "cutoff_t0": "2024-01-07",
+    "regime": "Fase endémica intermedia (Test)",
+    "horizon_t1": "2024-01-14",
+    "observed_t0 (lag_1)": 0.0,
+    "observed_t1": 0.0,
+    "naive_pred": 0.0,
+    "naive_mae": 0.0,
+    "rf_pred": 70.76,
+    "rf_mae": 70.76
+  },
+  {
+    "cutoff_t0": "2024-07-21",
+    "regime": "Corte previo al cierre (Test)",
+    "horizon_t1": "2024-07-28",
+    "observed_t0 (lag_1)": 1.0,
+    "observed_t1": 0.0,
+    "naive_pred": 1.0,
+    "naive_mae": 1.0,
+    "rf_pred": 70.76,
+    "rf_mae": 70.76
+  },
+  {
+    "cutoff_t0": "2024-07-28",
+    "regime": "Corte de referencia final (Test)",
+    "horizon_t1": "2024-08-04",
+    "observed_t0 (lag_1)": 0.0,
+    "observed_t1": 0.0,
+    "naive_pred": 0.0,
+    "naive_mae": 0.0,
+    "rf_pred": 70.76,
+    "rf_mae": 70.76
+  },
+  {
+    "cutoff_t0": "2024-08-04",
+    "regime": "Última semana histórica consolidada (Test)",
+    "horizon_t1": "2024-08-11",
+    "observed_t0 (lag_1)": 0.0,
+    "observed_t1": null,
+    "naive_pred": 0.0,
+    "naive_mae": null,
+    "rf_pred": 70.76,
+    "rf_mae": null
+  }
+]

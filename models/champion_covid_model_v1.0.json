@@ -1,0 +1,116 @@
+{
+  "version": "v1.0.0-kenya-covid-weekly",
+  "name": "Digital Twin Sensitivity Exploration Model (Candidate_Random_Forest)",
+  "predictive_champion_baseline": "Baseline_Naive_Persistence",
+  "created_at": "2026-09-28T16:28:27.975026",
+  "schema_version": "1.1",
+  "canonical_frequency": "WEEKLY",
+  "forecast_horizon": "1 semana hacia adelante (t+1)",
+  "geographic_scope": "National Level (Kenya)",
+  "features": [
+    "weekly_lag_1",
+    "weekly_lag_2",
+    "weekly_lag_3",
+    "weekly_lag_4",
+    "weekly_rolling_mean_4",
+    "weekly_rolling_std_4",
+    "weekly_deaths_lag_1",
+    "weekly_deaths_lag_2",
+    "stringency_lag_1",
+    "reproduction_rate_lag_1",
+    "month"
+  ],
+  "parameters": {
+    "regressor__max_depth": 5,
+    "regressor__min_samples_split": 2,
+    "regressor__n_estimators": 100
+  },
+  "selection_protocol": {
+    "predictive_champion_selection": "Baseline_Naive_Persistence seleccionada antes de evaluar en test por mínimo CV RMSE en desarrollo (1183.64 vs Ridge 1405.93).",
+    "test_evaluation_benchmark": "En test reservado, Baseline_Ridge_Regression obtuvo el menor RMSE (49.37 vs Naive 55.64), reportado como benchmark no seleccionado para evitar data snooping.",
+    "sensitivity_model_selection": "Candidate_Random_Forest seleccionado como modelo multivariado para exploración hipotética de sensibilidad condicional."
+  },
+  "metrics_summary": {
+    "predictive_champion": {
+      "model": "Baseline_Naive_Persistence",
+      "cv_rmse_dev": 1183.64,
+      "test_rmse": 55.64,
+      "test_mae": 19.23,
+      "test_r2": -0.4203
+    },
+    "test_benchmark_ridge": {
+      "model": "Baseline_Ridge_Regression",
+      "cv_rmse_dev": 1405.93,
+      "test_rmse": 49.37,
+      "test_mae": 16.04,
+      "test_r2": -0.1181,
+      "note": "Mejor RMSE en test, pero no seleccionado como campeón para preservar protocolo ciego de desarrollo."
+    },
+    "sensitivity_model": {
+      "model": "Candidate_Random_Forest",
+      "cv_rmse_dev": 1345.87,
+      "test_rmse": 81.72,
+      "test_mae": 74.05,
+      "test_r2": -2.0638,
+      "scenario_capabilities": "Exploración hipotética de sensibilidad condicional ante covariables (stringency_index, reproduction_rate, lags)."
+    }
+  },
+  "methodological_caveats": {
+    "causality_warning": "La sensibilidad de la predicción a stringency_index NO prueba un efecto causal ni valida impacto de intervenciones de salud pública. Es una exploración asociativa hipotética sujeta a endogeneidad y factores de confusión no observados.",
+    "oxford_index_discontinuation": "Oxford Blavatnik School cesó la recolección de stringency_index el 31/12/2022. Está 100% ausente en datos crudos para el periodo posterior a 2022.",
+    "missingness_audit": {
+      "test_period_raw_missingness": {
+        "stringency_index": "100.0% ausente (492/492 días en datos crudos; constante en 22.77 por ffill)",
+        "reproduction_rate": "100.0% ausente (492/492 días en datos crudos; constante en 0.54 por ffill)",
+        "new_cases": "0.0% ausente (461 ceros por reporte exclusivo dominical de la OMS)",
+        "new_deaths": "0.0% ausente (491 ceros)"
+      },
+      "inference_features_missingness": {
+        "weekly_lag_1_to_4": "0.0% ausente (alimentado continuamente por reportes dominicales OMS/MoH)",
+        "weekly_rolling_mean_std_4": "0.0% ausente (calculadas endógenamente de la serie semanal)",
+        "weekly_deaths_lag_1_to_2": "0.0% ausente",
+        "month": "0.0% ausente",
+        "stringency_lag_1": "100.0% ausente post-2022 (requiere valor hipotético definido por usuario para análisis de sensibilidad)",
+        "reproduction_rate_lag_1": "100.0% ausente post-2022 (requiere valor referencial o imputación)"
+      }
+    }
+  },
+  "statistical_tests": {
+    "shapiro_wilk": {
+      "statistic": 0.6887,
+      "p_value": 5.534087007900914e-11,
+      "is_normal": false
+    },
+    "wilcoxon_paired": {
+      "statistic": 145.0,
+      "p_value_two_sided": 6.678804602472367e-11,
+      "p_value_two_sided_formatted": "p < 0.0001",
+      "p_value_one_sided": 0.9999999999666059,
+      "interpretation": "p = 1.0000 unilateral refleja fallo en rechazar H0 de error_base > error_cand; la superioridad de persistencia se prueba por menor error observado (MAE 19.23 vs 74.05) y rechazo bilateral de igualdad distributiva."
+    },
+    "diebold_mariano_hln": {
+      "mean_loss_diff": -54.826,
+      "dm_stat_hln": -14.324,
+      "p_value_two_sided": 0.0,
+      "p_value_one_sided": 1.0,
+      "p_value_two_sided_formatted": "p < 0.0001",
+      "p_value_one_sided_formatted": "1.0000e+00",
+      "sample_size": 71,
+      "criterion": "mae"
+    },
+    "kolmogorov_smirnov": {
+      "statistic": 0.8592,
+      "p_value": 3.564965641663617e-27,
+      "p_value_formatted": "p < 0.0001",
+      "note": "Evalúa igualdad de distribución acumulada de errores, no mide superioridad ni ranking de error."
+    }
+  },
+  "technical_approval": true,
+  "approved_by": "Digital Twin Automated Governance Pipeline",
+  "data_coverage_pct": 100.0,
+  "is_synthetic": false,
+  "source_type": "EMPIRICAL",
+  "artifact_file": "champion_covid_model_v1.0.joblib",
+  "artifact_sha256": "2de57bc99863c085902f12df0e86886aa8ccde738669334d7d58df3de4deb8d2",
+  "sha256_checksum": "0e21db477b802b75202b88d043e31045ce3b61af2e9fe1423f3dd6609213806e"
+}

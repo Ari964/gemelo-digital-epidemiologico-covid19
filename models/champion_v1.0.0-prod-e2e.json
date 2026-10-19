@@ -1,0 +1,18 @@
+{
+  "version": "v1.0.0-prod-e2e",
+  "name": "Digital Twin Champion v1.0.0-prod-e2e",
+  "created_at": "2026-09-17T19:31:16.624094",
+  "parameters": {
+    "r2_fit": 0.94,
+    "mape": 4.8
+  },
+  "metrics": {
+    "r2": 0.94,
+    "mape": 4.8
+  },
+  "technical_approval": true,
+  "approved_by": "Ing. Administrador Sistema",
+  "data_coverage_pct": 92.5,
+  "is_synthetic": false,
+  "sha256_checksum": "0d925489cf2386f478da0870b392cceee1c380e28c0b1e4d99d59a8034e173a7"
+}
